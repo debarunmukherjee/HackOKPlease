@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, g, request, redirect, url_for
 import pymongo, json
 from pymongo import MongoClient
+from bson.json_util import dumps
 
 app = Flask('__name__')
 connection = MongoClient()
@@ -16,8 +17,8 @@ def index():
 def login():
     print('login')
     session.pop('user', None)
-    user = db['users'].find_one({'username': request.form['username']})
-    print(user)
+    user = dumps(db['users'].find_one({'username': request.form['username']}))
+    print(type(user))
     if user != None and user['password'] == request.form['password']:
         session['user'] = user
         return user['username']
