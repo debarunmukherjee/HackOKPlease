@@ -6,7 +6,7 @@ app = Flask('__name__')
 connection = MongoClient()
 db = connection['HackOkPlease']
 app.config['SECRET_KEY']='youcantguessthis'
-print('Mongo connection status ' + db)
+# print('Mongo connection status ' + db)
 
 @app.route('/')
 def index():
@@ -35,4 +35,4 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 8000, debug = True)
+    app.run(host = '127.0.0.1', port = 8000, debug = True)
