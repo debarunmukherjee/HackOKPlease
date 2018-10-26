@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 100%;
+}
+
+body {
+	background: #a7a7a7;
+}
+form {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%; 
+}
